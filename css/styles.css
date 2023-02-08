@@ -11,8 +11,8 @@ body {
     --main-blue-color: #4D5AE5;
     --main-white-color: #FFFFFF;
     --main-silvery-color: #E7E9FC;
+    --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 /* =========General========= */
 /* =========General========= */
 h1,h2,h3,h4,p {
@@ -108,6 +108,7 @@ button {
     font-size: 16px;
     line-height: 1.5;
     color: var(--main-dark-color);
+    transition: color var(--transition);
 }
 .menu-link:hover,
 .menu-link:focus {
@@ -124,6 +125,7 @@ button {
     font-size: 16px;
     line-height: 1.5;
     color: var(--main-color);
+    transition: color var(--transition);
 }
 .contact-phone-number:hover,
 .contact-phone-number:focus {
@@ -135,6 +137,7 @@ button {
     font-size: 16px;
     line-height: 1.5;
     color: var(--main-color);
+    transition: color var(--transition);
 }
 .contact-email-adress:hover,
 .contact-email-adress:focus {
@@ -175,10 +178,12 @@ button {
 
     border-radius: 4px;
     border: none;
+
+    transition: background-color var(--transition) ;
 }
 .main-button:hover,
 .main-button:focus {
-    background: var(--color-hover-effect);
+    background-color: var(--color-hover-effect);
 }
 
 /* =========goal-section========= */
@@ -286,10 +291,12 @@ button {
     border-radius: 50%;
     justify-content: center;
     align-items: center;
+
+    transition: background-color var(--transition);
 }
 .link-svg:hover,
 .link-svg:focus {
-    background: var(--color-hover-effect)
+    background-color: var(--color-hover-effect)
 }
 /* =========customers-section========= */
 .customers-title {
@@ -304,6 +311,11 @@ button {
     display: flex;
     gap: 24px;    
 }
+.customers-svg {
+    width: 102px;
+    height: 56px;
+    fill: currentColor;   
+}
 .customers-link {
     border: 1px solid #8E8F99;
     border-radius: 4px;
@@ -313,12 +325,11 @@ button {
     width: 168px;
     height: 88px; 
     color: #8E8F99 ;
+
+    transition: border-color var(--transition);
+    transition: color var(--transition);
 }
-.customers-svg {
-    width: 102px;
-    height: 56px;
-    fill: currentColor;   
-}
+
 .customers-link:hover,
 .customers-link:focus {
     border-color: var(--color-hover-effect);
@@ -375,10 +386,12 @@ margin-bottom: 16px;
     border-radius: 50%;
     justify-content: center;
     align-items: center;
+
+    transition: background-color var(--transition);
 }
 .footer-link-svg:hover,
 .footer-link-svg:focus {
-    background: #31D0AA;
+    background-color: #31D0AA;
 }
 /* =========footer========= */
 
@@ -400,15 +413,18 @@ margin-bottom: 16px;
     padding: 12px 24px;
     background: var(--main-light-color);
     border: 1px solid var(--main-silvery-color);
-    border-radius: 4px;     
+    border-radius: 4px;  
+    
+    transition: backgraund-color var(--transition), color var(--transition),
+    box-shadow var(--transition), border-radius var(--transition), border var(--transition);
 }
 .portfolio-btn:hover,
 .portfolio-btn:focus {
-    background: var(--color-hover-effect);
+    background-color: var(--color-hover-effect);
     color: var(--main-white-color);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
     border-radius: 4px;
-    border: none;
+    border: 1px solid var(--color-hover-effect);
 }
 
 /* =========porfolio-img========= */
@@ -421,8 +437,12 @@ margin-bottom: 16px;
 .portfolio-item-img {
     flex-basis: calc((100% - 48px) / 3);
 }
-.portfolio-item-img:hover,
-.portfolio-item-img:focus {
+.portfolio-link-img {
+    display: block;
+    transition: box-shadow var(--transition);
+}
+.portfolio-link-img:hover,
+.portfolio-link-img:focus {
     box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
  }
 .portfolio-title-text {
@@ -443,4 +463,29 @@ margin-bottom: 16px;
     font-size: 16px;
     line-height: 1.5; 
     color: var(--main-color);
+}
+.portfolio-overlay-img {
+    position: relative;
+    overflow: hidden;
+}
+.overlay-portfolio { 
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--main-light-color);
+    background-color: var(--main-blue-color);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px 32px;
+    overflow: auto;
+    transform: translate(0, 100%);
+    transition: transform var(--transition);
+}
+.portfolio-link-img:hover .overlay-portfolio,
+.portfolio-link-img:focus .overlay-portfolio {
+    transform: translate(0, 0);
 }
