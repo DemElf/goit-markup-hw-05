@@ -109,6 +109,7 @@ button {
     line-height: 1.5;
     color: var(--main-dark-color);
     transition: color var(--transition);
+    position: relative;
 }
 .menu-link:hover,
 .menu-link:focus {
