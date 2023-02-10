@@ -143,7 +143,16 @@ button {
 .contact-email-adress:focus {
     color: var(--color-hover-effect);
 }
-
+.active-link::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 43px;
+    width: 100%;
+    height: 4px;
+    background-color: var(--color-hover-effect);
+    border-radius: 2px;
+}
 /* =========hero-section========= */
 .hero {
     max-width: 1440px;
@@ -489,3 +498,65 @@ margin-bottom: 16px;
 .portfolio-link-img:focus .overlay-portfolio {
     transform: translate(0, 0);
 }
+/* =========/porfolio-section========= */
+
+
+/* =========modal-window========= */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(46, 47, 66, 0.4);
+    transition: opacity var(--transition), visibility var(--transition);
+}
+.backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.is-hidden.backdrop .modal {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2);
+}
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 408px;
+    height: 576px;
+    background-color: #fcfcfc;
+    box-shadow: 0px 1px 1px rgb(0 0 0 / 14%), 0px 1px 3px rgb(0 0 0 / 12%), 0px 2px 1px rgb(0 0 0 / 20%);
+    transition: transform var(--transition), opacity var(--transition);
+}
+.modal-close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #e7e9fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color var(--transition);
+}
+.modal-close-btn-svg {
+    height: 8px;
+    width: 8px;
+    transition: fill var(--transition);
+}
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    background-color: var(--color-hover-effect);
+}
+.modal-close-btn:hover .modal-close-btn-svg,
+.modal-close-btn:focus .modal-close-btn-svg {
+    fill: var(--main-white-color);
+}
+/* =========/modal-window========= */
